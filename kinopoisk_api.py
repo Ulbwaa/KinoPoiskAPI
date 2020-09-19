@@ -52,6 +52,8 @@ class KP:
         self.token = token
         self.headers = {"X-API-KEY": self.token}
         self.API = 'https://kinopoiskapiunofficial.tech/api/v2.1/'
+        self.version = '1.0-release'
+        self.about = 'KinoPoiskAPI'
 
     def get_film(self, film_id):
         cache = CACHE().load()
