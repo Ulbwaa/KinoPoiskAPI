@@ -11,6 +11,8 @@
   <img align="center" src="https://img.shields.io/website?down_message=Down&label=Kinopoisk%20Api%20Unofficial&up_message=Up&url=https%3A%2F%2Fkinopoiskapiunofficial.tech%2F" alt="API Uptime">
 </div>
 
+## Навигация
+
 * [Начало работы](#начало-работы)
   * [Получение токена KinopoiskAPI](#получение-токена-kinopoiskapi)
   * [Инициализация скрипта](#инициализация-скрипта)
