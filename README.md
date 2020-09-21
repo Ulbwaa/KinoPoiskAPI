@@ -2,12 +2,12 @@
 <p align="center">Модуль Python для взаимодействия с нефициальным <a href="https://kinopoiskapiunofficial.tech/">API КиноПоиска</a>.
 
 <p align="center">
-    <img src="https://img.shields.io/github/repo-size/Ulbwaa/KinoPoiskAPI" alt="GitHub repo size">
-    <img src="https://img.shields.io/github/stars/Ulbwaa/KinoPoiskAPI" alt="GitHub Repo stars">
-    <img src="https://img.shields.io/github/watchers/Ulbwaa/KinoPoiskAPI" alt="GitHub watchers">
-    <img src="https://img.shields.io/github/last-commit/Ulbwaa/KinoPoiskAPI" alt="GitHub last commit">
-    <img src="https://img.shields.io/codacy/grade/7733fc868fbc4da180e781d90cb30694" alt="Codacy grade">
-    <img src="https://img.shields.io/github/languages/top/Ulbwaa/KinoPoiskAPI" alt="GitHub top language">
+    <img align="middle" src="https://img.shields.io/github/repo-size/Ulbwaa/KinoPoiskAPI" alt="GitHub repo size">
+    <img align="middle" src="https://img.shields.io/github/stars/Ulbwaa/KinoPoiskAPI" alt="GitHub Repo stars">
+    <img align="middle" src="https://img.shields.io/github/watchers/Ulbwaa/KinoPoiskAPI" alt="GitHub watchers">
+    <img align="middle" src="https://img.shields.io/github/last-commit/Ulbwaa/KinoPoiskAPI" alt="GitHub last commit">
+    <img align="middle" src="https://img.shields.io/codacy/grade/7733fc868fbc4da180e781d90cb30694" alt="Codacy grade">
+    <img align="middle" src="https://img.shields.io/github/languages/top/Ulbwaa/KinoPoiskAPI" alt="GitHub top language">
 </p>
 
 * [Начало работы](#начало-работы)
