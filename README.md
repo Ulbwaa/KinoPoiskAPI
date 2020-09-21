@@ -1,11 +1,14 @@
 # <p align="center">KinoPoiskAPI
 <p align="center">Модуль Python для взаимодействия с нефициальным <a href="https://kinopoiskapiunofficial.tech/">API КиноПоиска</a>.
 
-![GitHub repo size](https://img.shields.io/github/repo-size/Ulbwaa/KinoPoiskAPI)
-![GitHub Repo stars](https://img.shields.io/github/stars/Ulbwaa/KinoPoiskAPI)
-![GitHub watchers](https://img.shields.io/github/watchers/Ulbwaa/KinoPoiskAPI)
-![GitHub last commit](https://img.shields.io/github/last-commit/Ulbwaa/KinoPoiskAPI)
-![Codacy grade](https://img.shields.io/codacy/grade/7733fc868fbc4da180e781d90cb30694)
+<p align="center">
+    <img src="https://img.shields.io/github/repo-size/Ulbwaa/KinoPoiskAPI" alt="GitHub repo size">
+    <img src="https://img.shields.io/github/stars/Ulbwaa/KinoPoiskAPI" alt="GitHub Repo stars">
+    <img src="https://img.shields.io/github/watchers/Ulbwaa/KinoPoiskAPI" alt="GitHub watchers">
+    <img src="https://img.shields.io/github/last-commit/Ulbwaa/KinoPoiskAPI" alt="GitHub last commit">
+    <img src="https://img.shields.io/codacy/grade/7733fc868fbc4da180e781d90cb30694" alt="Codacy grade">
+    <img src="https://img.shields.io/github/languages/top/Ulbwaa/KinoPoiskAPI" alt="GitHub top language">
+</p>
 
 * [Начало работы](#начало-работы)
   * [Получение токена KinopoiskAPI](#получение-токена-kinopoiskapi)
