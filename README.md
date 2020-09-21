@@ -8,6 +8,7 @@
     <img align="middle" src="https://img.shields.io/github/last-commit/Ulbwaa/KinoPoiskAPI" alt="GitHub last commit">
     <img align="middle" src="https://img.shields.io/codacy/grade/7733fc868fbc4da180e781d90cb30694" alt="Codacy grade">
     <img align="middle" src="https://img.shields.io/github/languages/top/Ulbwaa/KinoPoiskAPI" alt="GitHub top language">
+    <img align="middle" src="https://img.shields.io/website?down_message=Down&label=Kinopoisk%20Api%20Unofficial&up_message=Up&url=https%3A%2F%2Fkinopoiskapiunofficial.tech%2F" alt="API Uptime">
 </p>
 
 * [Начало работы](#начало-работы)
