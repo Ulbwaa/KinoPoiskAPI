@@ -7,7 +7,6 @@ import json
 
 class FILM:
     def __init__(self, data: dict):
-        rate_request = requests.get(f'https://rating.kinopoisk.ru/{data["filmId"]}.xml').text
         self.kp_id = data['filmId']
         self.name = data['nameRu'] if data['nameEn'] == '' else data['nameEn']
         self.ru_name = data['nameRu']
@@ -18,14 +17,8 @@ class FILM:
         self.genres = [genre['genre'] for genre in data['genres']]
         self.countries = [country['country'] for country in data['countries']]
         self.age_rating = data['ratingAgeLimits']
-        try:
-            self.kp_rate = xml.fromstring(rate_request)[0].text
-        except IndexError:
-            self.kp_rate = 0
-        try:
-            self.imdb_rate = xml.fromstring(rate_request)[1].text
-        except IndexError:
-            self.imdb_rate = 0
+        self.kp_rate = data['kp_rate']
+        self.imdb_rate = data['imdb_rate']
         self.kp_url = data['webUrl']
         self.premiere = data['premiereWorld']
         self.poster = data['posterUrl']
@@ -51,22 +44,38 @@ class KP:
     def __init__(self, token):
         self.token = token
         self.headers = {"X-API-KEY": self.token}
-        self.API = 'https://kinopoiskapiunofficial.tech/api/v2.1/'
-        self.version = '1.0-release'
+        self.api_version = 'v2.1'
+        self.API = 'https://kinopoiskapiunofficial.tech/api/' + self.api_version + '/'
+        self.version = self.api_version + '.1-release'
         self.about = 'KinoPoiskAPI'
 
     def get_film(self, film_id):
         cache = CACHE().load()
+
+        rate_request = requests.get(f'https://rating.kinopoisk.ru/{film_id}.xml').text
+        try:
+            kp_rate = xml.fromstring(rate_request)[0].text
+        except IndexError:
+            kp_rate = 0
+        try:
+            imdb_rate = xml.fromstring(rate_request)[1].text
+        except IndexError:
+            imdb_rate = 0
+
         if str(film_id) in cache:
             data = {}
             for a in cache[str(film_id)]:
                 data[a] = cache[str(film_id)][a]
+            data['kp_rate'] = kp_rate
+            data['imdb_rate'] = imdb_rate
             return FILM(data)
 
         for _ in range(10):
             try:
                 request = requests.get(self.API + 'films/' + str(film_id), headers=self.headers)
                 request_json = json.loads(request.text)
+                request_json['data']['kp_rate'] = kp_rate
+                request_json['data']['imdb_rate'] = imdb_rate
                 cache[str(film_id)] = request_json['data']
                 CACHE().write(cache)
                 return FILM(request_json['data'])
