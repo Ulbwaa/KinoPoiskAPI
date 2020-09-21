@@ -41,9 +41,8 @@ $ git clone https://github.com/Ulbwaa/KinoPoiskAPI
 Для получения токена необходима регистрация на сайте
 <a href="https://kinopoiskapiunofficial.tech/signup">kinopoiskapiunofficial.tech</a>.
 После регистрации перейдите в настройки своего <a href="https://kinopoiskapiunofficial.tech/user">профиля</a> и сохраните токен.
-<p align="center">
-    <img src="https://i.imgur.com/QkXRQ9t.png" alt="Регистрация">
-</p>
+
+<img align="center" src="https://i.imgur.com/QkXRQ9t.png" alt="Регистрация">
 
 ### Инициализация скрипта
 ```python
