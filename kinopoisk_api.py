@@ -46,7 +46,7 @@ class KP:
         self.headers = {"X-API-KEY": self.token}
         self.api_version = 'v2.1'
         self.API = 'https://kinopoiskapiunofficial.tech/api/' + self.api_version + '/'
-        self.version = self.api_version + '.1-release'
+        self.version = self.api_version + '.2-release'
         self.about = 'KinoPoiskAPI'
 
     def get_film(self, film_id):
@@ -91,7 +91,10 @@ class KP:
                 request_json = json.loads(request.text)
                 output = []
                 for film in request_json['films']:
-                    output.append(SEARCH(film))
+                    try:
+                        output.append(SEARCH(film))
+                    except (Exception, BaseException):
+                        continue
                 return output
             except json.decoder.JSONDecodeError:
                 time.sleep(0.5)
