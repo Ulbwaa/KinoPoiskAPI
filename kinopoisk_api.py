@@ -24,6 +24,21 @@ class FILM:
         self.poster = data['posterUrl']
         self.poster_preview = data['posterUrlPreview']
 
+        try:
+            self.secret_url = 'https:/' + data['secret']['data'][0]['iframe_src']
+        except (TypeError, IndexError):
+            self.secret_url = None
+
+        secret_urls = {
+            "283290": 'https://t.me/BorutoSerial',
+            "1042757": 'https://t.me/BorutoSerial',
+            "893924": 'https://t.me/BorutoSerial',
+            "1043713": 'https://www.youtube.com/watch?v=qrwlk7_GF9g'
+        }
+
+        if str(data['filmId']) in secret_urls:
+            self.secret_url = secret_urls[str(data['filmId'])]
+
 
 class SEARCH:
     def __init__(self, data: dict):
@@ -79,14 +94,18 @@ class KP:
                 request_json['data']['kp_rate'] = kp_rate
                 request_json['data']['imdb_rate'] = imdb_rate
                 try:
-                    request_secret = requests.get(self.secret_API, params={
-                        "kinopoisk_id": film_id,
-                        "api_token": self.secret
-                    })
-                    request_secret_json = json.loads(request_secret.text)
-                    request_json['data']['secret'] = request_secret_json
+                    if self.secret is not None:
+                        request_secret = requests.get(self.secret_API, params={
+                            "kinopoisk_id": film_id,
+                            "api_token": self.secret
+                        })
+                        print(1, request_secret.text)
+                        request_secret_json = json.loads(request_secret.text)
+                        request_json['data']['secret'] = request_secret_json
+                    else:
+                        request_json['data']['secret'] = {"result": False}
                 except (Exception, BaseException):
-                    request_json['data']['secret'] = None
+                    request_json['data']['secret'] = {"result": False}
                 cache[str(film_id)] = request_json['data']
                 CACHE().write(cache)
                 return FILM(request_json['data'])
