@@ -41,11 +41,13 @@ class SEARCH:
 
 
 class KP:
-    def __init__(self, token):
+    def __init__(self, token, secret=None):
         self.token = token
+        self.secret = secret
         self.headers = {"X-API-KEY": self.token}
         self.api_version = 'v2.1'
         self.API = 'https://kinopoiskapiunofficial.tech/api/' + self.api_version + '/'
+        self.secret_API = 'https://videocdn.tv/api/short'
         self.version = self.api_version + '.2-release'
         self.about = 'KinoPoiskAPI'
 
@@ -76,6 +78,15 @@ class KP:
                 request_json = json.loads(request.text)
                 request_json['data']['kp_rate'] = kp_rate
                 request_json['data']['imdb_rate'] = imdb_rate
+                try:
+                    request_secret = requests.get(self.secret_API, params={
+                        "kinopoisk_id": film_id,
+                        "api_token": self.secret
+                    })
+                    request_secret_json = json.loads(request_secret.text)
+                    request_json['data']['secret'] = request_secret_json
+                except (Exception, BaseException):
+                    request_json['data']['secret'] = None
                 cache[str(film_id)] = request_json['data']
                 CACHE().write(cache)
                 return FILM(request_json['data'])
